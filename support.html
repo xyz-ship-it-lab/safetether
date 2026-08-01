@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>よくある質問 | SafeTether</title>
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --card-bg: #ffffff;
+    --text-primary: #1c1c1e;
+    --text-secondary: #6e6e73;
+    --accent: #3b82f6;
+    --border: #e5e7eb;
+    --danger: #ef4444;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.7;
+  }
+  header {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: white;
+    padding: 48px 20px 40px;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  header p {
+    margin: 0;
+    font-size: 15px;
+    opacity: 0.9;
+  }
+  main {
+    max-width: 760px;
+    margin: -24px auto 60px;
+    padding: 0 16px;
+  }
+  nav.toc {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  nav.toc h2 {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 0 12px;
+    font-weight: 600;
+  }
+  nav.toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+  }
+  nav.toc a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  nav.toc a:hover { text-decoration: underline; }
+
+  section.category {
+    background: var(--card-bg);
+    border-radius: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  section.category h2 {
+    font-size: 17px;
+    margin: 0;
+    padding: 18px 24px;
+    background: #f0f4ff;
+    color: #1e3a8a;
+    border-bottom: 1px solid var(--border);
+  }
+  details {
+    border-bottom: 1px solid var(--border);
+  }
+  details:last-child { border-bottom: none; }
+  summary {
+    padding: 16px 24px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    font-size: 20px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-left: 12px;
+    flex-shrink: 0;
+  }
+  details[open] summary::after {
+    content: "−";
+  }
+  details[open] summary {
+    color: var(--accent);
+  }
+  .answer {
+    padding: 0 24px 20px;
+    font-size: 14.5px;
+    color: var(--text-secondary);
+  }
+  .answer p { margin: 0 0 12px; }
+  .answer p:last-child { margin-bottom: 0; }
+  .answer ul { margin: 8px 0; padding-left: 20px; }
+  .answer li { margin-bottom: 6px; }
+  .note {
+    background: #fff7ed;
+    border-left: 3px solid #f59e0b;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    margin-top: 10px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 32px 16px 48px;
+    color: var(--text-secondary);
+    font-size: 13px;
+  }
+  footer a { color: var(--accent); }
+
+  @media (max-width: 480px) {
+    header h1 { font-size: 22px; }
+    summary { font-size: 14px; padding: 14px 18px; }
+    .answer { padding: 0 18px 18px; }
+    section.category h2 { padding: 16px 18px; font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>よくある質問</h1>
+  <p>SafeTether(セーフテザー)についてのFAQです</p>
+</header>
+
+<main>
+
+  <nav class="toc">
+    <h2>カテゴリ</h2>
+    <ul>
+      <li><a href="#location">位置情報について</a></li>
+      <li><a href="#privacy">プライバシーについて</a></li>
+      <li><a href="#invite">招待・共有について</a></li>
+      <li><a href="#notify">通知について</a></li>
+      <li><a href="#disaster">災害モードについて</a></li>
+      <li><a href="#plan">料金・プランについて</a></li>
+      <li><a href="#trouble">トラブルシューティング</a></li>
+    </ul>
+  </nav>
+
+  <section class="category" id="location">
+    <h2>位置情報について</h2>
+
+    <details>
+      <summary>位置情報はどのくらいの頻度で更新されますか?</summary>
+      <div class="answer">
+        <p>通常時は、電池の消費を抑えるため「大きな移動があった時」だけ自動的に更新される仕組みになっています。数百メートル〜数キロメートル程度の移動があると更新され、その場に留まっている間は更新されません。</p>
+        <p>より高頻度な更新が必要な災害時は、「災害モード」を使うことで5分おきの更新に切り替えることができます。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>アプリを開いていなくても位置情報は更新されますか?</summary>
+      <div class="answer">
+        <p>はい、大きな移動があった場合はアプリを開いていなくても、バックグラウンドで自動的に更新されます。これはiOSのシステム機能によるもので、位置情報の権限を「常に許可」にしていただく必要があります。</p>
+        <div class="note">ただし、iOSの省電力設定や端末の状態によっては、更新が遅れたり保証されなかったりする場合があります。確実な安否確認が必要な場面では、チャット機能も合わせてご利用ください。</div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Wi-FiとモバイルデータどちらでSAFEtherは位置を測定していますか?</summary>
+      <div class="answer">
+        <p>Wi-Fi・モバイル回線(4G/5G)・GPSのすべてを、iOSが状況に応じて自動的に組み合わせて位置を測定します。アプリ側でどれかを選ぶ設定はありません。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>位置情報の精度はどのくらいですか?</summary>
+      <div class="answer">
+        <p>屋外でGPSが良好に受信できる状況では数十メートル程度、屋内やビルの多い場所ではそれより精度が落ちることがあります。これはお使いの端末やiOSの仕様によるものです。</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="category" id="privacy">
+    <h2>プライバシーについて</h2>
+
+    <details>
+      <summary>自宅の位置は相手に伝わりますか?</summary>
+      <div class="answer">
+        <p>「設定」タブから自宅の場所を登録しておくと、その範囲内にいる間は正確な座標ではなく「自宅付近」とだけ相手に伝わります。実際の緯度・経度はサーバーにも送信されません。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>自分の位置情報は誰が見られますか?</summary>
+      <div class="answer">
+        <p>あなたが招待し、承認された「見守り相手」だけが見ることができます。第三者や他の利用者には一切公開されません。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>位置情報などのデータはどこに保存されますか?</summary>
+      <div class="answer">
+        <p>AppleのCloudKit(iCloud基盤)上に保存されます。自宅の位置情報やニックネームなど個人設定は、ご自身のiCloudアカウントに紐づく領域に保存され、他の利用者からは参照できません。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>アイコンや呼び方の設定は相手にも共有されますか?</summary>
+      <div class="answer">
+        <p>相手に対する「呼び方(ニックネーム)」は、あなた自身だけに表示される設定であり、相手には共有されません。一方、自分自身のアイコンは、見守り関係にあるすべての相手に表示されます。</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="category" id="invite">
+    <h2>招待・共有について</h2>
+
+    <details>
+      <summary>相手をどうやって登録しますか?</summary>
+      <div class="answer">
+        <p>「相手を管理」タブから「新しく招待する」を選ぶと、QRコードと数字の招待コードが発行されます。相手がそのQRコードを読み取るか、コードを入力して承認すると、位置情報の共有が始まります。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>招待コードの有効期限はどのくらいですか?</summary>
+      <div class="answer">
+        <p>発行から24時間です。期限が切れた場合は、もう一度招待コードを発行してください。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>共有を解除するとどうなりますか?</summary>
+      <div class="answer">
+        <p>解除すると、双方の位置情報の共有・通知がすべて停止します。解除は一覧の相手の設定画面からいつでも行うことができ、相手にも自動的に反映されます。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>一度解除した相手と、もう一度共有を始められますか?</summary>
+      <div class="answer">
+        <p>はい、新しく招待コードを発行して、改めて承認してもらうことで再度共有を開始できます。</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="category" id="notify">
+    <h2>通知について</h2>
+
+    <details>
+      <summary>エリア離脱通知とは何ですか?</summary>
+      <div class="answer">
+        <p>「設定」タブから登録したエリア(学校など)を、見守り相手が出入りした時に通知でお知らせする機能です。相手ごとに個別にオン・オフを切り替えられます。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>未起動・未使用の通知とは何ですか?</summary>
+      <div class="answer">
+        <p>見守り相手のアプリの起動や、端末の動きが一定時間(目安として12時間)確認できない場合に、通知でお知らせする機能です。高齢のご家族などの見守りを想定しています。</p>
+        <div class="note">この機能はOSの制約上、確実な検知を保証するものではありません。あくまで補助的な機能としてご利用ください。緊急時は直接連絡を取ることをおすすめします。</div>
+      </div>
+    </details>
+
+    <details>
+      <summary>通知が来ないことがあります</summary>
+      <div class="answer">
+        <p>バックグラウンドでの通知はiOSのシステムに依存しており、必ず届くことを保証するものではありません。端末の「設定」アプリから、SafeTetherの通知が許可されているかご確認ください。</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="category" id="disaster">
+    <h2>災害モードについて</h2>
+
+    <details>
+      <summary>災害モードとは何ですか?</summary>
+      <div class="answer">
+        <p>平常時より高頻度(5分おき)に位置情報を更新するモードです。災害などの緊急時に、見守り相手の安否をより素早く確認できるようにするための機能です。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>災害モードは電池を多く消費しますか?</summary>
+      <div class="answer">
+        <p>はい、通常時より高頻度に位置情報を取得するため、電池の消費が大きくなります。状況が落ち着いたら「災害モードを終了」ボタンで通常モードに戻すことをおすすめします。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>「無事です」を送ると災害モードは自動的に終了しますか?</summary>
+      <div class="answer">
+        <p>はい、クイック返信で「無事です」を送信すると、緊急性が低いと判断し、自動的に災害モードが終了して通常モードに戻ります。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>災害モードは自動では始まりませんか?</summary>
+      <div class="answer">
+        <p>現在は手動での開始のみに対応しています。「見守り」タブの「災害モードを開始」ボタンから開始してください。</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="category" id="plan">
+    <h2>料金・プランについて</h2>
+
+    <details>
+      <summary>無料でどこまで使えますか?</summary>
+      <div class="answer">
+        <p>無料プランでは、見守り相手を1人まで登録できます。位置共有、チャット、災害モードなど基本機能はすべてご利用いただけます。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>もっと多くの人と共有したい場合は?</summary>
+      <div class="answer">
+        <p>「設定」タブの「見守り人数プラン」から、5人・10人・15人までのプランにアップグレードできます。月額のサブスクリプション形式です。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>プランを解約したらどうなりますか?</summary>
+      <div class="answer">
+        <p>解約後は、次の更新日以降、無料プランの上限(1人)に戻ります。上限を超えている場合、新しい相手の招待はできなくなりますが、既存の共有関係がすぐに解除されるわけではありません。</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="category" id="trouble">
+    <h2>トラブルシューティング</h2>
+
+    <details>
+      <summary>相手の位置が更新されません</summary>
+      <div class="answer">
+        <ul>
+          <li>相手が実際に大きく移動していない場合、位置情報は更新されません(正常な動作です)</li>
+          <li>「見守り」タブを下に引っ張ると、最新の情報に更新されます</li>
+          <li>相手の端末で位置情報の許可が「常に許可」になっているかご確認ください</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>招待コードを読み取ってもエラーになります</summary>
+      <div class="answer">
+        <ul>
+          <li>招待コードの有効期限(24時間)が切れている可能性があります</li>
+          <li>プランの人数上限に達している可能性があります。「設定」からプランをご確認ください</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>共有を解除したのに相手の情報が残っています</summary>
+      <div class="answer">
+        <p>相手側の端末では、次にアプリを開いた際(またはタブを切り替えた際)に自動的に反映されます。すぐに反映されない場合は、アプリを一度完全に終了してから開き直してください。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>自宅の場所を登録したのに正確な位置が見えているようです</summary>
+      <div class="answer">
+        <p>自宅から一度も移動していない場合、登録前の古い位置情報がサーバーに残っている可能性があります。一度アプリを起動し直していただくと、最新の状態に自動的に補正されます。改善しない場合はサポートまでご連絡ください。</p>
+      </div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <p>このFAQで解決しない場合は、サポートまでお問い合わせください。</p>
+  <p>&copy; 2026 SUZUNOYA</p>
+</footer>
+
+</body>
+</html>
